@@ -57,6 +57,7 @@ ControleOperacionalWeb/
 ├── README.md
 └── MANUAL.md
 
+---
 ## Imagens da aplicação
 
 ### Tela principal
@@ -78,5 +79,26 @@ ControleOperacionalWeb/
 ### Relatório operacional
 
 ![Relatório do sistema](./imagens/RelatorioSistema.png)
+
+---
+
+## Tecnologias utilizadas
+
+- **HTML5:** Estrutura da aplicação, formulários, botões, listas, mapa e janelas de diálogo.
+- **CSS3:** Estilização da interface, cores, espaçamentos, painéis, botões e layout responsivo.
+- **JavaScript (ES6+):** Lógica da aplicação, validação de motoristas e veículos, cálculo das rotas, manipulação do DOM, relatórios e auditoria.
+- **Leaflet:** Biblioteca JavaScript utilizada para criar o mapa interativo, marcadores, linhas, camadas, pedágios e rota calculada.
+- **OpenStreetMap:** Fonte dos mapas utilizados como base para a visualização geográfica.
+- **Algoritmo de Dijkstra:** Utilizado para encontrar a melhor rota entre as cidades, considerando menor tempo ou menor custo.
+- **XAMPP ou Live Server:** Utilizado para executar o projeto localmente durante os testes.
+- **GitHub:** Utilizado para armazenar e disponibilizar o código-fonte do projeto.
+
+---
+
+## Como Executar Localmente
+
+1. Clone o repositório ou baixe os arquivos:
+   ```bash
+   git clone [https://github.com/CarolineGrizante/Controle-Operacional-Teoria-dos-Grafos-.git]
 
 
