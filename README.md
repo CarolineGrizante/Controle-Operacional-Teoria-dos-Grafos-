@@ -56,3 +56,27 @@ ControleOperacionalWeb/
 ├── config.example.js
 ├── README.md
 └── MANUAL.md
+
+## Imagens da aplicação
+
+### Tela principal
+
+![Tela principal](./imagens/TelaInicial.png)
+
+### Teste com rota e carga
+
+![Teste perfeito](./imagens/TestePerfeito.png)
+
+### Cenário de bloqueio
+
+![Teste bloqueado](./imagens/TesteBloqueado.png)
+
+### Mapa sem cargas
+
+![Mapa sem cargas](./imagens/SemCargasMapa.png)
+
+### Relatório operacional
+
+![Relatório do sistema](./imagens/RelatorioSistema.png)
+
+
