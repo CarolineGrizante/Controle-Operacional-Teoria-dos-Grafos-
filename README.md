@@ -83,9 +83,9 @@ ControleOperacionalWeb/
 
 ![Teste bloqueado](./imagens/TesteBloqueado.png)
 
-### Mapa sem cargas
+### Mapa sem camadas
 
-![Mapa sem cargas](./imagens/SemCargasMapa.png)
+![Mapa sem cargas](./imagens/SemCamadasMapa.png)
 
 ### Relatório operacional
 
