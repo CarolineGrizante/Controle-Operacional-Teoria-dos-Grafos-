@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O **Controle Operacional Web** é uma aplicação web acadêmica desenvolvida para simular o planejamento de operações logísticas.
+O **Controle Operacional Web** é uma aplicação acadêmica desenvolvida para simular o planejamento de operações logísticas.
 
 O sistema permite selecionar origem, destino, motorista, veículo, cargas e condições das vias para calcular uma rota de transporte. Antes de autorizar a viagem, a aplicação também realiza validações de segurança e conformidade.
 
