@@ -121,12 +121,12 @@ Caso utilize o **Live Server**, abra o arquivo `index.html` e selecione a opçã
 ## Funcionamento do grafo
 
 O mapa principal da aplicação representa a rede logística como um grafo:
-• Cada cidade ou centro de distribuição é um nó
-• Cada rodovia é uma aresta
-• A distância, a velocidade, o pedágio e a condição da via são atributos da aresta
-• Uma cidade pode ser acessada por mais de uma rodovia
-• O algoritmo de Dijkstra compara os caminhos disponíveis
-• A rota final é destacada visualmente no grafo
+- Cada cidade ou centro de distribuição é um nó
+- Cada rodovia é uma aresta
+- A distância, a velocidade, o pedágio e a condição da via são atributos da aresta
+- Uma cidade pode ser acessada por mais de uma rodovia
+- O algoritmo de Dijkstra compara os caminhos disponíveis
+- A rota final é destacada visualmente no grafo
 
 ---
 
@@ -136,12 +136,12 @@ As encomendas são filtradas conforme a origem e o destino selecionados para a v
 Quando a opção de carga perigosa está desmarcada, são consideradas as encomendas normais. Quando a opção é ativada, as cargas perigosas também podem ser incluídas, desde que o motorista possua a licença MOPP.
 O sistema calcula automaticamente:
 
-• Peso total da carga
-• Volume total da carga
-• Percentual de utilização do veículo
-• Excesso de peso
-• Excesso de cubagem
-• Necessidade de MOPP
+- Peso total da carga
+- Volume total da carga
+- Percentual de utilização do veículo
+- Excesso de peso
+- Excesso de cubagem
+- Necessidade de MOPP
 
 --- 
 
@@ -149,11 +149,11 @@ O sistema calcula automaticamente:
 
 O projeto possui condições simuladas para demonstrar o impacto das vias no cálculo da rota:
 
-• Normal
-• Chuva
-• Tempestade
-• Acidente
-• Interdição
+- Normal
+- Chuva
+- Tempestade
+- Acidente
+- Interdição
 
 As condições alteram o tempo estimado ou podem impedir a utilização de determinadas ligações.
 O trânsito apresentado é simulado. A aplicação não consulta, por padrão, dados de trânsito em tempo real.
@@ -165,12 +165,12 @@ O trânsito apresentado é simulado. A aplicação não consulta, por padrão, d
 O modo principal utiliza um grafo operacional estilizado semelhante ao protótipo WPF. Esse grafo não depende de um mapa externo para funcionar.
 A aplicação possui uma opção de camada geográfica real. Quando ativada, ela tenta adicionar um mapa de referência por baixo do grafo. Essa camada é opcional e não substitui:
 
-• Os nós
-• As arestas
-• Os nomes das rodovias
-• Os pedágios
-• A rota calculada
-• As regras logísticas
+- Os nós
+- As arestas
+- Os nomes das rodovias
+- Os pedágios
+- A rota calculada
+- As regras logísticas
 
 Caso o provedor externo não esteja disponível, o grafo operacional continua funcionando.
 
