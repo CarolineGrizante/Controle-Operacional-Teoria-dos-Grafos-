@@ -61,11 +61,11 @@
       z-index: 1;
     }
     .glass-panel {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
     .glow-cyan {
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
@@ -75,17 +75,28 @@
     }
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 8px;
+      height: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.5);
+      background: rgba(15, 23, 42, 0.6);
     }
     ::-webkit-scrollbar-thumb {
       background: #334155;
-      border-radius: 3px;
+      border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #38bdf8;
+    }
+    /* Dark Theme para as opções do Dropdown Select */
+    select option {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+      padding: 8px 12px;
+    }
+    select option:hover, select option:focus, select option:checked {
+      background-color: #0369a1 !important;
+      color: #ffffff !important;
     }
   </style>
 </head>
@@ -113,7 +124,7 @@
       <span id="slide-category" class="text-xs font-semibold uppercase tracking-wider text-slate-300">Apresentação</span>
     </div>
 
-    <!-- Top Right Controls (Simulador Rota removido) -->
+    <!-- Top Right Controls -->
     <div class="flex items-center gap-3 pointer-events-auto">
       <button id="toggle-speaker-btn" title="Notas da Apresentação" class="glass-panel px-3 py-2 rounded-xl text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition flex items-center gap-2 text-xs font-semibold">
         <i class="fa-solid fa-microphone-lines text-cyan-400"></i>
@@ -125,9 +136,9 @@
     </div>
   </header>
 
-  <!-- Slide Content Overlay (Main Left Panel) -->
+  <!-- Slide Content Overlay (Main Left Panel - Ampliado para max-w-xl) -->
   <main class="fixed inset-y-0 left-0 z-20 w-full max-w-xl p-6 pt-24 pb-28 flex flex-col justify-center pointer-events-none">
-    <div id="slide-card" class="glass-panel p-8 rounded-3xl pointer-events-auto transform transition-all duration-500 relative overflow-hidden border border-slate-700/50">
+    <div id="slide-card" class="glass-panel p-7 rounded-3xl pointer-events-auto transform transition-all duration-500 relative overflow-hidden border border-slate-700/50">
       
       <!-- Ambient Card Glow Accent -->
       <div id="card-glow" class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -140,10 +151,10 @@
       </div>
 
       <!-- Title & Subtitle -->
-      <h2 id="slide-title" class="font-display text-3xl font-bold text-white mb-3 leading-tight">
+      <h2 id="slide-title" class="font-display text-2xl font-bold text-white mb-3 leading-tight">
         Controle Operacional em Grafos
       </h2>
-      <p id="slide-subtitle" class="text-slate-300 text-sm mb-6 leading-relaxed">
+      <p id="slide-subtitle" class="text-slate-300 text-xs mb-5 leading-relaxed">
         Modelagem avançada em Teoria dos Grafos para Gestão Logística e Algoritmos de Menor Caminho e Tempo.
       </p>
 
@@ -155,27 +166,35 @@
     </div>
   </main>
 
-  <!-- Code Inspector Drawer (Appears on Code Slides) -->
-  <div id="code-drawer" class="fixed inset-y-0 right-0 z-20 w-full max-w-lg p-6 pt-24 pb-28 flex flex-col justify-center pointer-events-none translate-x-full transition-transform duration-500">
-    <div class="glass-panel p-6 rounded-3xl pointer-events-auto border border-cyan-500/30 flex flex-col h-full shadow-2xl">
-      <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-800">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-code text-cyan-400"></i>
-          <span id="code-file-name" class="font-mono text-sm font-bold text-white">app.js</span>
+  <!-- Code Inspector Drawer (Appears on Code Slides - Expanded Space) -->
+  <div id="code-drawer" class="fixed inset-y-0 right-0 z-20 w-full max-w-3xl p-6 pt-24 pb-28 flex flex-col justify-center pointer-events-none translate-x-full transition-transform duration-500">
+    <div class="glass-panel p-6 rounded-3xl pointer-events-auto border border-cyan-500/40 flex flex-col h-full shadow-2xl bg-slate-950/95">
+      <div class="flex justify-between items-center mb-3 pb-3 border-b border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <span id="code-file-name" class="font-mono text-sm font-bold text-white block">app.js</span>
+            <span class="text-[10px] text-slate-400 font-mono">Visualizador de Código Teoria dos Grafos</span>
+          </div>
         </div>
-        <span class="text-xs font-mono text-slate-400">ECMAScript 2024</span>
       </div>
-      <div class="flex-grow bg-slate-950/90 rounded-2xl p-4 font-mono text-xs overflow-auto border border-slate-800/80">
-        <pre><code id="code-content" class="text-slate-300"></code></pre>
+      
+      <!-- Larger Code Area Container -->
+      <div class="flex-grow bg-slate-950/95 rounded-2xl p-5 font-mono text-xs overflow-auto border border-slate-800/90 shadow-inner">
+        <pre class="whitespace-pre-wrap break-words leading-relaxed"><code id="code-content" class="text-slate-200"></code></pre>
       </div>
-      <div id="code-explanation" class="mt-4 p-3 bg-slate-900/60 border border-slate-800 rounded-xl text-xs text-slate-300 leading-relaxed">
-        Explicação técnica do bloco de código.
+      
+      <div id="code-explanation" class="mt-3 p-3 bg-slate-900/80 border border-slate-800 rounded-xl text-xs text-slate-300 leading-relaxed flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-cyan-400 text-base"></i>
+        <span>Use a barra de rolagem se necessário para analisar o algoritmo completo!</span>
       </div>
     </div>
   </div>
 
   <!-- Presenter Notes Drawer (Speaker Script) -->
-  <aside id="speaker-drawer" class="fixed bottom-24 left-6 z-20 w-full max-w-xl pointer-events-none translate-y-12 opacity-0 transition-all duration-300">
+  <aside id="speaker-drawer" class="fixed bottom-24 left-6 z-20 w-full max-w-lg pointer-events-none translate-y-12 opacity-0 transition-all duration-300">
     <div class="glass-panel p-5 rounded-2xl border border-amber-500/30 pointer-events-auto bg-slate-950/90 shadow-2xl">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-2">
@@ -212,7 +231,7 @@
     <!-- Center Slide Jump Dropdown -->
     <div class="pointer-events-auto glass-panel px-4 py-2 rounded-2xl border border-slate-700 flex items-center gap-2 text-xs">
       <i class="fa-solid fa-list-ul text-slate-400"></i>
-      <select id="slide-select" class="bg-transparent text-slate-200 font-medium focus:outline-none cursor-pointer">
+      <select id="slide-select" class="bg-slate-900 text-slate-200 font-medium focus:outline-none cursor-pointer">
         <!-- Generated dynamically -->
       </select>
     </div>
@@ -259,6 +278,7 @@
     const SLIDES_DATA = [
       {
         id: 1,
+        tag: "FHO",
         title: "Controle Operacional Logístico",
         subtitle: "Modelagem em Teoria dos Grafos para Gestão Logística e Algoritmos de Menor Caminho e Tempo.",
         body: `
@@ -270,11 +290,11 @@
             </div>
             <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
               <span class="text-xs font-mono text-slate-400 uppercase font-bold">Equipe de Desenvolvimento</span>
-              <div class="grid grid-cols-2 gap-2 mt-2 text-xs text-slate-200">
-                <div>• Caroline Grizante <small class="text-slate-400">(RA 114105)</small></div>
-                <div>• Emilly R. dos Santos <small class="text-slate-400">(RA 114095)</small></div>
-                <div>• Guilherme Scaglia <small class="text-slate-400">(RA 111598)</small></div>
-                <div>• Marcela Lovatto <small class="text-slate-400">(RA 113626)</small></div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 mt-2.5 text-xs text-slate-200">
+                <div class="flex items-center gap-1.5"><span class="text-slate-400">•</span> <strong>Caroline Grizante</strong> <small class="text-slate-400 font-mono">(RA 114105)</small></div>
+                <div class="flex items-center gap-1.5"><span class="text-slate-400">•</span> <strong>Emilly R. dos Santos</strong> <small class="text-slate-400 font-mono">(RA 114095)</small></div>
+                <div class="flex items-center gap-1.5"><span class="text-slate-400">•</span> <strong>Guilherme Scaglia</strong> <small class="text-slate-400 font-mono">(RA 111598)</small></div>
+                <div class="flex items-center gap-1.5"><span class="text-slate-400">•</span> <strong>Marcela Lovatto</strong> <small class="text-slate-400 font-mono">(RA 113626)</small></div>
               </div>
             </div>
           </div>
@@ -455,7 +475,7 @@
             </div>
           </div>
         `,
-        script: "Apresentamos a arquitetura do projeto. O código foi organizado modularmente: o data.js cuida dos dados do grafo, o app.js executa o algoritmo de Dijkstra e validações, e o HTML/CSS fornecem o painel visual.",
+        script: "Apresentamos a arquitetura do projeto. O código foi organized modularmente: o data.js cuida dos dados do grafo, o app.js executa o algoritmo de Dijkstra e validações, e o HTML/CSS fornecem o painel visual.",
         camPos: { x: 0, y: 14, z: 14 },
         targetPos: { x: 0, y: 0, z: 0 },
         showCode: true,
@@ -834,7 +854,7 @@ EDGES.filter(edge => edge.from === current).forEach(edge => {
         scene.add(mesh);
         nodeMeshes[c.id] = mesh;
 
-        // Canvas Text Label Sprite (Cria a caixa com o nome da cidade acima do nó)
+        // Canvas Text Label Sprite
         const labelSprite = createTextLabelSprite(c.short || c.name);
         labelSprite.position.set(c.pos[0], c.pos[1] + (c.cd ? 0.9 : 0.7), c.pos[2]);
         scene.add(labelSprite);
@@ -851,7 +871,6 @@ EDGES.filter(edge => edge.from === current).forEach(edge => {
       });
     }
 
-    // Helper que desenha a caixa de texto azul idêntica ao design 3D
     function createTextLabelSprite(text) {
       const canvas = document.createElement('canvas');
       canvas.width = 256;
